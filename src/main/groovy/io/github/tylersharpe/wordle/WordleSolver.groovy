@@ -32,6 +32,7 @@ class WordleSolver {
             switch (guess.result) {
                 case Guess.Result.CORRECT:
                     columnState.letter = guess.letter
+                    columnState.candidates = Set.of(guess.letter)
                     columnStates.each { it.misplaced.remove(guess.letter) }
                     break
 
@@ -67,10 +68,9 @@ class WordleSolver {
     private void populateNextGuesses(Set<String> guessesContainer, String currentGuessStr = '') {
         ColumnState columnState = columnStates[currentGuessStr.size()]
 
-        Set<Character> columnCandidates = columnState.letter ? Set.of(columnState.letter) : columnState.candidates
         Set<Character> uniqueMisplaced = columnStates.collectMany { it.misplaced } as Set<Character>
 
-        for (char columnCandidate in columnCandidates) {
+        for (char columnCandidate in columnState.candidates) {
             String newGuessStr = currentGuessStr + columnCandidate
 
             if (newGuessStr.size() == columnStates.size()) {

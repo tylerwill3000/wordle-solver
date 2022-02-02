@@ -1043,6 +1043,7 @@ frill
 frisk
 fritz
 frogs
+frond
 front
 frost
 froth
@@ -3330,7 +3331,6 @@ tooth
 toots
 topaz
 topic
-topsy
 torah
 torch
 torso
