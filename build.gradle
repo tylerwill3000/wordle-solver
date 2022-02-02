@@ -1,0 +1,19 @@
+plugins {
+    id 'groovy'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy:3.0.9'
+}
+
+jar {
+    from configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+
+    manifest {
+        attributes 'Main-Class': 'io.github.tylersharpe.wordle.Main'
+    }
+}
