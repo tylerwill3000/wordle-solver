@@ -1,4 +1,4 @@
-package io.github.tylersharpe.wordle
+package io.github.tylerwilliams.wordle
 
 import groovy.transform.CompileStatic
 
